@@ -1,4 +1,3 @@
-# cmstemplate
-Github pages template for cmsimde submodule
+# Web Content Management
 
-http://mde.tw/cmstemplate
+http://mde.tw/wcm2022
