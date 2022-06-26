@@ -1,0 +1,76 @@
+<!-- 導入 brython.js 程式庫 -->
+<script src="https://mde.tw/wcm2022_guide/cmsimde/static/brython.js"></script>
+
+<!-- 導入 brython_stdlib.js 標準程式庫 -->
+<script src="https://mde.tw/wcm2022_guide/cmsimde/static/brython_stdlib.js"></script>
+
+<!-- 啟動 brython -->
+<script>
+  window.onload=function(){
+  brython();
+  }
+</script>
+
+<!-- 執行所需要的 Brython 程式 -->
+<script type="text/python3">
+  from browser import document as doc
+  # 以下將利用 html 產生所需的繪圖畫布
+  from browser import html
+  # 利用 math 函式庫執行三角函數運算
+  import math
+  canvas = html.CANVAS(width = 300, height = 150)
+  #canvas.style = {"width": "100%"}
+  canvas.id = "taiwan_flag"
+  # 將圖畫至 id 為 brython_div 的 cnavas 標註
+  brython_div = doc["brython_div"]
+  brython_div <= canvas
+  # 準備繪圖畫布
+  canvas = doc["taiwan_flag"]
+  ctx=canvas.getContext('2d');
+
+  #绘制蓝色背景
+  ctx.fillStyle="#0065BD";
+  ctx.fillRect(0,0,300,150);
+
+  #绘制白色X
+  ctx.beginPath();
+  ctx.lineWidth="30";
+  ctx.strokeStyle="white";
+  ctx.moveTo(0,0);
+  ctx.lineTo(300,150);
+  ctx.moveTo(400,-50);
+  ctx.lineTo(-100,200);
+  ctx.stroke();
+
+  #绘制红色X
+  ctx.beginPath();
+  ctx.lineWidth="10";
+  ctx.strokeStyle="red";
+  ctx.moveTo(0,0);
+  ctx.lineTo(300,150);
+  ctx.moveTo(400,-50);
+  ctx.lineTo(-100,200);
+  ctx.stroke();
+
+  #绘制白色+
+  ctx.beginPath();
+  ctx.lineWidth="35";
+  ctx.strokeStyle="white";
+  ctx.moveTo(150,0);
+  ctx.lineTo(150,150);
+  ctx.moveTo(0,75);
+  ctx.lineTo(300,75);
+  ctx.stroke();
+
+  #绘制红色+
+  ctx.beginPath();
+  ctx.lineWidth="20";
+  ctx.strokeStyle="red";
+  ctx.moveTo(150,0);
+  ctx.lineTo(150,150);
+  ctx.moveTo(0,75);
+  ctx.lineTo(300,75);
+  ctx.stroke();
+</script>
+
+<div id="brython_div"></div>
